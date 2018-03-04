@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Determinante de Matriz</title>
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/matrices.css"/>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <header class="center grey darken-3 grey-text text-lighten-5 hoverable">
+            <p class="copy">Calculo de Determinante de Matriz por Expansión de Cofactores</p>
+            <p class="copy">Seminario de Problemas de Metodos Matematicos II</p>
+        </header>
+    	<main class="container">
+    		<div class="row">
+                <div class="ins card-panel center grey lighten-3 grey-text text-darken-3">
+                    <p>Instrucciones:</p>
+                    <p>Separar cada columna con un salto de linea (enter) y cada fila por una coma.</p>
+                    <p>ejemplo:<br>0, 1, 0<br>3, 7,9<br>13,23,77<br> (Tres columnas, tres filas)</p>
+                </div>
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea  id="matriz" class="materialize-textarea"></textarea>
+                            <label for="matriz">Matriz</label>
+                        </div>
+                    </div>
+                </form>
+                <div class="center">
+                    <button class="btn grey darken-1 white-text hoverable center copy" id="btn-calc">Calcular</button>
+                    <div class=" row card-panel copy grey lighten-5 grey-text text-darken-1 center" id="res"></div>
+                </div>
+		    </div>
+	    </main>
+        <footer class="footer-copyright grey darken-3 grey-text text-lighten-5 center hoverable">
+            <div class="container s12">
+                <div class="copy">Edgar</div>
+                <div class="copy">Luis Angel Muñoz Franco</div>
+                <div class="copy">Luis</div>
+            </div>
+        </footer>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/matrices.js"></script>
+    </body>
+  </html>
