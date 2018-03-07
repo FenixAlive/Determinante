@@ -3,7 +3,43 @@ $(function(){
     var res = "#res"
     //función de determinante
     function determinante(mat){
-        console.log(mat);
+        console.log("mat: ", mat);
+        var det = 0;
+        var tam = mat.length;
+        if(tam == 2){
+            return mat[0][0]*mat[1][1]-mat[0][1]*mat[1][0];
+        }else{
+            for(let j=0; j<tam; j++){
+                console.log("antes: "+ det);
+                det=det+mat[0][j] * cofactor(mat, tam, 0, j);
+                console.log("despues: "+ det);
+            }
+        }
+        return det;
+    }
+    //funcion cofactor
+    function cofactor(mat, tam, fila, col){
+        var submat = [];
+        var temp = [];
+        var n = tam-1;
+        var x=0, y=0;
+        for(let i=0; i<tam;i++){
+            if(i != fila){
+                temp = [];
+                for(let j=0;j<tam;j++){
+                    if(j != col){
+                        temp.push(mat[i][j]);
+                        y++;
+                        if(y >= n){
+                            x++;
+                            y=0;
+                        }
+                    }
+                }
+                submat.push(temp);
+            }
+        }
+        return(Math.pow(-1, fila+col)*determinante(submat));
     }
     //separar texto y convertirlo a matriz
     function crearMatriz(str){
@@ -70,6 +106,7 @@ $(function(){
         return matNum;
     }
     $("#btn-calc").click(function(){
+        $(res).html("Espere un momento...")
         var err = 0;
         $("#res").empty();
         var m = $("#matriz").val();
@@ -88,9 +125,15 @@ $(function(){
             err = 1;
         }
         if(!err){
-            //Calcular determinante
-            determinante(matriz);
-            $(res).html("Hola");
+            var det;
+            //ver si es una matriz de 1 elemento
+            if(matriz.length == 1){
+                det = matriz[0][0];
+            }else{
+                //calcular determinante
+                det = determinante(matriz);
+            }
+            $(res).html("<p>Determinante: "+det+"</p>");
         } 
     })
 })
